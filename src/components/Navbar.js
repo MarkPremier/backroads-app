@@ -1,14 +1,25 @@
 import logo from "../images/logo.svg";
 import { pageLinks, socialLinks } from "../data";
+import React, { useState } from "react";
 
 const Navbar = () => {
+  const [navbarOpen, setNavbarOpen] = useState(false);
+  const handleToggle = () => {
+    setNavbarOpen((prev) => !prev);
+  };
   return (
     <nav className="navbar">
       <div className="nav-center">
         <div className="nav-header">
           <img src={logo} className="nav-logo" alt="backroads" />
-          <button type="button" className="nav-toggle" id="nav-toggle">
+          <button
+            onClick={handleToggle}
+            type="button"
+            className="nav-toggle"
+            id="nav-toggle"
+          >
             <i className="fas fa-bars"></i>
+            {navbarOpen ? "" : ""}
           </button>
         </div>
         <ul className="nav-links" id="nav-links">
